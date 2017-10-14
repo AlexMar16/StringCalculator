@@ -80,4 +80,9 @@ public class StringCalculatorTest {
   public void testNumberBiggerThan1K() {
     assertEquals(0, StringCalculator.Add("1001"));
   }
+
+  @Test
+  public void testNumbersBiggerThan1K() {
+    assertEquals(3, StringCalculator.Add("1,1002,2"));
+  }
 }
