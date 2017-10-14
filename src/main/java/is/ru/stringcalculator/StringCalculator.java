@@ -10,8 +10,13 @@ public class StringCalculator {
 			String[] numbers;
 			if(input.contains("//")) {
         String[] splits = input.split("\n");
-        String delimiter = charToString(splits[0],  2);
-				numbers = splits[1].split(delimiter);
+				if(splits.length > 2) {
+					for(int i = 2; i < splits.length; i++) {
+						splits[1] += "\n" + splits[i];
+					}
+				}
+        String delimiter = charToString(splits[0],2);
+				numbers = splits[1].split(delimiter+ "|,|\n");
       }
       else {
         numbers = input.split(",|\n");
