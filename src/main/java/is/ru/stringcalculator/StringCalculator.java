@@ -23,8 +23,22 @@ public class StringCalculator {
 
   private static int sum(String[] numbers) {
     int sum = 0;
+    String[] negatives = new String[numbers.length];
+    int index = 0;
     for(String number: numbers) {
       sum += toInt(number);
+      if(number.contains("-")) {
+        negatives[index] = number;
+        index++;
+      }
+    }
+    if(index > 0) {
+      String message = "Negatives not allowed: ";
+      for(int i = 0; i < index - 1; i++) {
+        message += negatives[i] + ",";
+      }
+      message += negatives[index - 1];
+      throw new IllegalArgumentException(message);
     }
     return sum;
   }

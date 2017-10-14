@@ -53,4 +53,15 @@ public class StringCalculatorTest {
       assertEquals("Negatives not allowed: -2", e.getMessage());
     }
   }
+
+  @Test
+  public void testMultipleOnlyNegatives() {
+    try{
+      StringCalculator.Add("-1,-2\n-3");
+      junit.framework.Assert.fail("Should throw IllegalArgumentException..");
+    }
+    catch (IllegalArgumentException e) {
+      assertEquals("Negatives not allowed: -1,-2,-3", e.getMessage());
+    }
+  }
 }
