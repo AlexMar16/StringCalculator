@@ -85,4 +85,9 @@ public class StringCalculatorTest {
   public void testNumbersBiggerThan1K() {
     assertEquals(3, StringCalculator.Add("1,1002,2"));
   }
+
+  @Test
+  public void testDifferentSingleCharacterDelimiter() {
+    assertEquals(3, StringCalculator.Add("//;\n1;2"));
+  }
 }

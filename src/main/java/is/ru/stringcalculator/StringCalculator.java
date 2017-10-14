@@ -7,7 +7,15 @@ public class StringCalculator {
       return 0;
     }
     if(input.contains(",") || input.contains("\n")) {
-      String[] numbers = input.split(",|\n");
+			String[] numbers;
+			if(input.contains("//")) {
+        String[] splits = input.split("\n");
+        String delimiter = Character.toString(splits[0].charAt(2));
+				numbers = splits[1].split(delimiter);
+      }
+      else {
+        numbers = input.split(",|\n");
+      }
       return sum(numbers);
     }
     int number = toInt(input);
