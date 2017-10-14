@@ -29,6 +29,9 @@ public class StringCalculator {
 				onlyNumbers = splits[1];
 			}
 			String delimiter = charToString(splits[0],2);
+			for(int i = 3; i < splits[0].length(); i++) {
+				delimiter += charToString(splits[0], i);
+			}
 			return onlyNumbers.split(delimiter + "|,|\n");
 		}
 		return input.split(",|\n");

@@ -95,4 +95,9 @@ public class StringCalculatorTest {
   public void testDifferentDelimiters() {
     assertEquals(10, StringCalculator.Add("//;\n1;2,3\n4"));
   }
+
+  @Test
+  public void testMultiCharacterDelimiter() {
+    assertEquals(10, StringCalculator.Add("//LE\n1LE2,3\n4"));
+  }
 }
