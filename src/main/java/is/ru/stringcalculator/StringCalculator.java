@@ -10,7 +10,11 @@ public class StringCalculator {
       String[] numbers = input.split(",|\n");
       return sum(numbers);
     }
-    return Integer.parseInt(input);
+    int number = toInt(input);
+    if(number < 0) {
+      throw new IllegalArgumentException("Negatives not allowed: -1");
+    }
+    return toInt(input);
   }
 
   private static int toInt(String number) {
