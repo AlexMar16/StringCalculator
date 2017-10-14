@@ -33,13 +33,17 @@ public class StringCalculator {
       }
     }
     if(index > 0) {
-      String message = "Negatives not allowed: ";
-      for(int i = 0; i < index - 1; i++) {
-        message += negatives[i] + ",";
-      }
-      message += negatives[index - 1];
-      throw new IllegalArgumentException(message);
+      throwNegatives(negatives, index);
     }
     return sum;
+  }
+
+  private static void throwNegatives(String[] negatives, int index) {
+    String message = "Negatives not allowed: ";
+    for(int i = 0; i < index - 1; i++) {
+      message += negatives[i] + ",";
+    }
+    message += negatives[index - 1];
+    throw new IllegalArgumentException(message);
   }
 }
