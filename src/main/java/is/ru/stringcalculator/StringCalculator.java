@@ -14,11 +14,15 @@ public class StringCalculator {
     if(number < 0) {
       throw new IllegalArgumentException("Negatives not allowed: " + number);
     }
-    return toInt(input);
+    return number;
   }
 
-  private static int toInt(String number) {
-    return Integer.parseInt(number);
+  private static int toInt(String strNumber) {
+    int number =  Integer.parseInt(strNumber);
+    if(number > 1000) {
+      number = 0;
+    }
+    return number;
   }
 
   private static int sum(String[] numbers) {

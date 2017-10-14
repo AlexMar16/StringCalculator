@@ -75,4 +75,9 @@ public class StringCalculatorTest {
       assertEquals("Negatives not allowed: -1,-2,-3", e.getMessage());
     }
   }
+
+  @Test
+  public void testNumberBiggerThan1K() {
+    assertEquals(0, StringCalculator.Add("1001"));
+  }
 }
