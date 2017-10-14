@@ -29,5 +29,6 @@ public class StringCalculatorTest {
   @Test
   public void testWithNewLine() {
     assertEquals(6, StringCalculator.Add("1\n2,3"));
+    assertEquals(6, StringCalculator.Add("1\n2\n3"));
   }
 }
