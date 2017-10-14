@@ -8,19 +8,7 @@ public class StringCalculator {
     }
     if(input.contains(",") || input.contains("\n")) {
 			String[] numbers;
-			if(input.contains("//")) {
-        String[] splits = input.split("\n");
-				if(splits.length > 2) {
-					for(int i = 2; i < splits.length; i++) {
-						splits[1] += "\n" + splits[i];
-					}
-				}
-        String delimiter = charToString(splits[0],2);
-				numbers = splits[1].split(delimiter+ "|,|\n");
-      }
-      else {
-        numbers = input.split(",|\n");
-      }
+			numbers = getNumbers(input);
       return sum(numbers);
     }
     int number = toInt(input);
@@ -29,6 +17,30 @@ public class StringCalculator {
     }
     return number;
   }
+
+	private static String[] getNumbers(String input) {
+		if(input.contains("//")) {
+			String[] splits = input.split("\n");
+			String onlyNumbers;
+			if(splits.length > 2) {
+				onlyNumbers = fixNumbers(splits);
+			}
+			else {
+				onlyNumbers = splits[1];
+			}
+			String delimiter = charToString(splits[0],2);
+			return onlyNumbers.split(delimiter + "|,|\n");
+		}
+		return input.split(",|\n");
+	}
+
+	private static String fixNumbers(String[] splits) {
+		String fixed = splits[1];
+		for(int i = 2; i < splits.length; i++) {
+			fixed += "\n" + splits[i];
+		}
+		return fixed;
+	}
 
 	private static String charToString(String input, int index) {
 		return Character.toString(input.charAt(index));
