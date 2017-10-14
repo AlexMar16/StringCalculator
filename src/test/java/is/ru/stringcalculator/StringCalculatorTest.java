@@ -9,4 +9,9 @@ public class StringCalculatorTest {
   public void testEmptyString() {
     assertEquals(0, StringCalculator.Add(""));
   }
+
+  @Test
+  public void testOneNumber() {
+    assertEquals(1, StringCalculator.Add("1"));
+  }
 }
