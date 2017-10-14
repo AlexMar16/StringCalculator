@@ -10,7 +10,7 @@ public class StringCalculator {
 			String[] numbers;
 			if(input.contains("//")) {
         String[] splits = input.split("\n");
-        String delimiter = Character.toString(splits[0].charAt(2));
+        String delimiter = charToString(splits[0],  2);
 				numbers = splits[1].split(delimiter);
       }
       else {
@@ -24,6 +24,10 @@ public class StringCalculator {
     }
     return number;
   }
+
+	private static String charToString(String input, int index) {
+		return Character.toString(input.charAt(index));
+	}
 
   private static int toInt(String strNumber) {
     int number =  Integer.parseInt(strNumber);
