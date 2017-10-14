@@ -42,4 +42,15 @@ public class StringCalculatorTest {
       assertEquals("Negatives not allowed: -1", e.getMessage());
     }
   }
+
+  @Test
+  public void testOneNegativeOtherThanOne() {
+    try{
+      StringCalculator.Add("-2");
+      junit.framework.Assert.fail("Should throw IllegalArgumentException..");
+    }
+    catch (IllegalArgumentException e) {
+      assertEquals("Negatives not allowed: -2", e.getMessage());
+    }
+  }
 }

@@ -12,7 +12,7 @@ public class StringCalculator {
     }
     int number = toInt(input);
     if(number < 0) {
-      throw new IllegalArgumentException("Negatives not allowed: -1");
+      throw new IllegalArgumentException("Negatives not allowed: " + number);
     }
     return toInt(input);
   }
