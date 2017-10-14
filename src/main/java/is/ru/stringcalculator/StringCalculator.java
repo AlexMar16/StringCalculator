@@ -28,13 +28,19 @@ public class StringCalculator {
 			else {
 				onlyNumbers = splits[1];
 			}
-			String delimiter = charToString(splits[0],2);
-			for(int i = 3; i < splits[0].length(); i++) {
-				delimiter += charToString(splits[0], i);
-			}
-			return onlyNumbers.split(delimiter + "|,|\n");
+			String delimiter = getDelimiter(splits[0]);
+			return onlyNumbers.split(delimiter);
 		}
 		return input.split(",|\n");
+	}
+
+	private static String getDelimiter(String input) {
+		String delimiter = charToString(input,2);
+		for(int i = 3; i < input.length(); i++) {
+			delimiter += charToString(input, i);
+		}
+		delimiter += "|,|\n" ;
+		return delimiter;
 	}
 
 	private static String fixNumbers(String[] splits) {
