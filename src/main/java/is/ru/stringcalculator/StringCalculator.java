@@ -8,8 +8,12 @@ public class StringCalculator {
     }
     if(input.contains(",")) {
       String[] numbers = input.split(",");
-      return Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]);
+      return toInt(numbers[0]) + toInt(numbers[1]);
     }
     return Integer.parseInt(input);
+  }
+
+  private static int toInt(String number) {
+    return Integer.parseInt(number);
   }
 }
