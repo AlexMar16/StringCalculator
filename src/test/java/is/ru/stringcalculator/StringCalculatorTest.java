@@ -92,7 +92,17 @@ public class StringCalculatorTest {
   }
 
   @Test
+<<<<<<< HEAD
   public void testMultipleDelimiters() {
       assertEquals(6, StringCalculator.Add("//;,\n1;2,3"));
+=======
+  public void testDifferentDelimiters() {
+    assertEquals(10, StringCalculator.Add("//;\n1;2,3\n4"));
+  }
+
+  @Test
+  public void testMultiCharacterDelimiter() {
+    assertEquals(10, StringCalculator.Add("//LE\n1LE2,3\n4"));
+>>>>>>> 27ba269a92ea8f805c0e985628a69cbc673f0221
   }
 }
