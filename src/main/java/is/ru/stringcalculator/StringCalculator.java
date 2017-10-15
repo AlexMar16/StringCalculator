@@ -11,6 +11,9 @@ public class StringCalculator {
 			if(input.contains("//")) {
         String[] splits = input.split("\n");
         String delimiter = charToString(splits[0],  2);
+        for(int i = 0; i < splits[0].length(); i++) {
+          delimiter += "|" + charToString(splits[0], i);
+        }
 				numbers = splits[1].split(delimiter);
       }
       else {
