@@ -7,25 +7,29 @@ public class StringCalculator {
       return 0;
     }
     if(input.contains(",") || input.contains("\n")) {
-			String[] numbers;
-			if(input.contains("//")) {
-        String[] splits = input.split("\n");
-        String delimiter = charToString(splits[0],  2);
-        for(int i = 0; i < splits[0].length(); i++) {
-          delimiter += "|" + charToString(splits[0], i);
-        }
-				numbers = splits[1].split(delimiter);
-      }
-      else {
-        numbers = input.split(",|\n");
-      }
-      return sum(numbers);
+      return sum(getNumbers(input));
     }
     int number = toInt(input);
     if(number < 0) {
       throw new IllegalArgumentException("Negatives not allowed: " + number);
     }
     return number;
+  }
+
+  private static String[] getNumbers(String input) {
+    if(input.contains("//")) {
+      String[] splits = input.split("\n");
+      return splits[1].split(getDelimiter(splits[0]));
+    }
+    return input.split(",|\n");
+  }
+
+  private static String getDelimiter(String input) {
+    String delimiter = charToString(input,  2);
+    for(int i = 0; i < input.length(); i++) {
+      delimiter += "|" + charToString(input, i);
+    }
+    return delimiter;
   }
 
 	private static String charToString(String input, int index) {
